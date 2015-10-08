@@ -1,30 +1,29 @@
 google.load('visualization', '1', {packages: ['corechart', 'bar']});
-google.setOnLoadCallback(drawBasic);
+google.setOnLoadCallback(drawMultSeries);
 
-function drawBasic() {
-
+function drawMultSeries() {
     var data = google.visualization.arrayToDataTable([
-        ['Year', 'Visitors',],
+        ['Year', 'Visitors'],
         ['2008-2009', 1556162],
         ['2009-2010', 1459080],
         ['2010-2011', 1543232],
         ['2011-2012', 1660450],
-        ['2012-2013', 1506274]
+        ['2012-2013', 1506274],
     ]);
 
     var options = {
-        title: 'L.A. Zoo Attendence 2008-2013.',
+        title: 'L.A. Zoo Attendance 2008-2013.',
         chartArea: {width: '50%'},
         hAxis: {
-            title: 'Visitors.',
+            title: 'Visitors',
             minValue: 0
         },
         vAxis: {
             title: 'Year'
-        }
+        },
+        backgroundColor:"gray"
     };
 
     var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
-
     chart.draw(data, options);
 }
